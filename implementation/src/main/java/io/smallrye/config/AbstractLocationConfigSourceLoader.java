@@ -232,7 +232,7 @@ public abstract class AbstractLocationConfigSourceLoader {
             final List<ConfigSource> profileSources) {
         try {
             profileSources.add(loadConfigSource(profileToFileName, ordinal));
-        } catch (FileNotFoundException | NoSuchFileException e) {
+        } catch (FileNotFoundException | NoSuchFileException | RuntimeException e) {
             // It is ok to not find the resource here, because it is an optional profile resource.
         } catch (IOException e) {
             throw ConfigMessages.msg.failedToLoadResource(e);
